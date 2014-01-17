@@ -13,7 +13,7 @@
     that makeup this application -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>angmvc.config</param-value>
+        <param-value>angmvc.web.config</param-value>
     </context-param>
     <!-- Creates the Spring Container shared by all Servlets and Filters -->
     <listener>
