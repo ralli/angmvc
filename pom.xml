@@ -1,16 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.springapp</groupId>
-    <artifactId>angmvc</artifactId>
-    <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>angmvc</name>
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>angmvc</groupId>
+ <artifactId>angmvc</artifactId>
+ <version>0.0.1-SNAPSHOT</version>
+ <packaging>pom</packaging>
+ <name>Angular JS - Spring MVC</name>
+ <description>Demonstration</description>
+ <url>https://github.com/ralli/angmvc</url>
+ <properties>
+    <spring.version>4.0.0.RELEASE</spring.version>
+</properties>
 
-    <properties>
-        <spring.version>4.0.0.RELEASE</spring.version>
-    </properties>
+<modules>
+    <module>angmvc-core</module>
+    <module>angmvc-web</module>
+</modules>
 
+<dependencyManagement>
     <dependencies>
         <!-- Logging -->
         <dependency>
@@ -155,7 +163,7 @@
             <artifactId>hibernate-validator</artifactId>
             <version>5.0.2.Final</version>
         </dependency>
-       <!-- AspectJ -->
+        <!-- AspectJ -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -219,25 +227,26 @@
             <version>2.6</version>
         </dependency>
     </dependencies>
+</dependencyManagement>
 
-    <build>
-        <finalName>angmvc</finalName>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*Tests.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+    <finalName>angmvc</finalName>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <includes>
+                    <include>**/*Tests.java</include>
+                </includes>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 </project>

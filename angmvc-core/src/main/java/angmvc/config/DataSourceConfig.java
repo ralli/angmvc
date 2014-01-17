@@ -24,6 +24,7 @@ public class DataSourceConfig {
 
   @Bean
   public DataSource dataSource() throws ClassNotFoundException {
+    log.info("Creating Datasource");
     EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
     EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.H2).addDefaultScripts().build();
     return db;
@@ -31,6 +32,7 @@ public class DataSourceConfig {
 
   @Bean
   public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) throws ClassNotFoundException {
+    log.info("Creating Transaction Manager");
     JpaTransactionManager transactionManager = new JpaTransactionManager();
     transactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
     return transactionManager;
@@ -38,6 +40,7 @@ public class DataSourceConfig {
 
   @Bean
   public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource) throws ClassNotFoundException {
+    log.info("Creating EntityManagerFactoryBean");
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource);
     entityManagerFactoryBean.setPackagesToScan("angmvc.model");
