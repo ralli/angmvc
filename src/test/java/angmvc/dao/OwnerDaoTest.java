@@ -33,4 +33,25 @@ public class OwnerDaoTest {
     Owner owner = ownerDao.findById(id);
     assertNotNull(owner);
   }
+
+  @Test
+  public void testInsertUpdateDelete() {
+    Owner owner = new Owner();
+    owner.setFirstName("Horst");
+    owner.setLastName("Hrubesch");
+    owner.setAddress("Herbartstr. 10");
+    owner.setCity("Frankfurt");
+    owner.setTelephone("01223834339");
+    ownerDao.insert(owner);
+    Long id = owner.getId();
+    assertNotNull(id);
+    owner.setFirstName("Ottilie");
+    ownerDao.update(owner);
+    owner = ownerDao.findById(id);
+    assertNotNull(owner);
+    assertEquals("Ottilie", owner.getFirstName());
+    ownerDao.delete(owner);
+    owner = ownerDao.findById(id);
+    assertNull(owner);
+  }
 }
