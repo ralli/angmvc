@@ -3,6 +3,7 @@ package angmvc.core.dao;
 import angmvc.TestContext;
 import angmvc.config.DataSourceConfig;
 import angmvc.core.model.Pet;
+import angmvc.core.model.Visit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,22 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { DataSourceConfig.class, TestContext.class })
 @Transactional
-public class PetDaoTest {
+public class VisitDaoTest {
   @Autowired
-  private PetDao petDao;
+  private VisitDao visitDao;
 
   @Test
-  public void testFindByOwner() {
-    final Long ownerId = 1L;
-    List<Pet> pets = petDao.findByOwner(ownerId);
-    assertFalse(pets.isEmpty());
+  public void testFindByPet() {
+    final Long petId = 7L;
+    List<Visit> visits = visitDao.findByPet(petId);
+    assertFalse(visits.isEmpty());
   }
 
   @Test
   public void testFindById() {
-    final Long petId = 1L;
-    Pet pet = petDao.findById(petId);
-    assertNotNull(pet);
+    final Long visitId = 1L;
+    Visit visit = visitDao.findById(visitId);
+    assertNotNull(visit);
   }
 
   private Date createDate(int year, int month, int day) {
@@ -48,21 +49,21 @@ public class PetDaoTest {
 
   @Test
   public void testInsertUpdateDelete() {
-       Pet pet = new Pet();
-    pet.setName("Hansi");
-    pet.setBirthDate(createDate(2011, 1, 21));
-    pet.setOwnerId(1L);
-    pet.setPetTypeId(1L);
-    petDao.insert(pet);
-    assertNotNull(pet.getId());
-    Long id = pet.getId();
-    pet.setName("Bello");
-    petDao.update(pet);
-    pet = petDao.findById(id);
-    assertNotNull(pet);
-    assertEquals("Bello", pet.getName());
-    petDao.delete(pet);
-    pet = petDao.findById(id);
-    assertNull(pet);
+    final long petId = 1L;
+    Visit visit = new Visit();
+    visit.setDescription("Test Visit");
+    visit.setVisitDate(createDate(2011, 1, 21));
+    visit.setPetId(petId);
+    visitDao.insert(visit);
+    assertNotNull(visit.getId());
+    Long id = visit.getId();
+    visit.setDescription("Another Description");
+    visitDao.update(visit);
+    visit = visitDao.findById(id);
+    assertNotNull(visit);
+    assertEquals("Another Description", visit.getDescription());
+    visitDao.delete(visit);
+    visit = visitDao.findById(id);
+    assertNull(visit);
   }
 }

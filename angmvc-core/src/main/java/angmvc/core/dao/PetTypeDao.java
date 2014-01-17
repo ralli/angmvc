@@ -20,7 +20,7 @@ public interface PetTypeDao {
      * @return the pet type read or <code>null</code> if no pet type has been
      *         found
      */
-    PetType findById(int id);
+    PetType findById(long id);
 
     /**
      * inserts a new pet type into the database

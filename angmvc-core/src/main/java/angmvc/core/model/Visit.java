@@ -25,10 +25,10 @@ public class Visit implements Serializable {
 
   @ManyToOne
   @JoinColumn(name="pet_id", referencedColumnName = "id", insertable = false, updatable = false)
-  @NotNull
   private Pet pet;
 
   @Column(name = "pet_id")
+  @NotNull
   private Long petId;
 
   public Long getId() {

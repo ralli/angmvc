@@ -1,7 +1,7 @@
 package angmvc.core.dao;
 
 import angmvc.TestContext;
-import angmvc.web.config.DataSourceConfig;
+import angmvc.config.DataSourceConfig;
 import angmvc.core.model.Owner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
