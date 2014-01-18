@@ -1,7 +1,7 @@
 package angmvc.core.dao.impl;
 
 import angmvc.core.dao.PetTypeDao;
-import angmvc.core.model.PetType;
+import angmvc.core.entities.PetType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

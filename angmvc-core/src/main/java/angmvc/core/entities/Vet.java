@@ -1,4 +1,4 @@
-package angmvc.core.model;
+package angmvc.core.entities;
 
 
 import org.apache.commons.lang.StringUtils;

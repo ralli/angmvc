@@ -1,9 +1,8 @@
 package angmvc.core.dao;
 
 import angmvc.TestContext;
-import angmvc.config.DataSourceConfig;
-import angmvc.core.model.PetType;
-import angmvc.core.model.Specialty;
+import angmvc.core.config.DataSourceConfig;
+import angmvc.core.entities.Specialty;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

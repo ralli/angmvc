@@ -1,13 +1,13 @@
-package angmvc.core.model;
+package angmvc.core.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="types")
-public class PetType implements Serializable {
+@Table(name="specialties")
+public class Specialty implements Serializable {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY )
   private Long id;
   private String name;
 
@@ -32,10 +32,10 @@ public class PetType implements Serializable {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    PetType petType = (PetType) o;
+    Specialty specialty = (Specialty) o;
 
-    if (id != null ? !id.equals(petType.id) : petType.id != null) return false;
-    if (name != null ? !name.equals(petType.name) : petType.name != null) return false;
+    if (id != null ? !id.equals(specialty.id) : specialty.id != null) return false;
+    if (name != null ? !name.equals(specialty.name) : specialty.name != null) return false;
 
     return true;
   }
@@ -49,7 +49,7 @@ public class PetType implements Serializable {
 
   @Override
   public String toString() {
-    return "PetType{" +
+    return "Specialty{" +
             "id=" + id +
             ", name='" + name + '\'' +
             '}';

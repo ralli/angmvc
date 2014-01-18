@@ -1,7 +1,7 @@
 package angmvc.core.dao.impl;
 
 import angmvc.core.dao.VisitDao;
-import angmvc.core.model.Visit;
+import angmvc.core.entities.Visit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

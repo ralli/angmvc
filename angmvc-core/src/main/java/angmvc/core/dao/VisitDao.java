@@ -1,6 +1,6 @@
 package angmvc.core.dao;
 
-import angmvc.core.model.Visit;
+import angmvc.core.entities.Visit;
 
 import java.util.List;
 

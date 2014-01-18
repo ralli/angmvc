@@ -1,4 +1,4 @@
-package angmvc.core.model;
+package angmvc.core.entities;
 
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

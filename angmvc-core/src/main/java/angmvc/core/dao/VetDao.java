@@ -2,7 +2,7 @@ package angmvc.core.dao;
 
 import java.util.List;
 
-import angmvc.core.model.Vet;
+import angmvc.core.entities.Vet;
 
 public interface VetDao {
     /**

@@ -1,4 +1,4 @@
-package angmvc.config;
+package angmvc.core.config;
 
 import javax.sql.DataSource;
 
@@ -43,7 +43,7 @@ public class DataSourceConfig {
     log.info("Creating EntityManagerFactoryBean");
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource);
-    entityManagerFactoryBean.setPackagesToScan("angmvc.core.model");
+    entityManagerFactoryBean.setPackagesToScan("angmvc.core.entities");
     entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
     Properties jpaProterties = new Properties();
     jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");

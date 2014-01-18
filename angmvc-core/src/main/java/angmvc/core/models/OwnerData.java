@@ -1,25 +1,22 @@
-package angmvc.web.models;
+package angmvc.core.models;
 
 import java.io.Serializable;
-import java.util.List;
 
-public class OwnerInfo implements Serializable {
+public class OwnerData implements Serializable {
   private Long id;
   private String firstName;
   private String lastName;
   private String address;
   private String city;
   private String telephone;
-  private List<String> petNames;
 
-  public OwnerInfo(Long id, String firstName, String lastName, String address, String city, String telephone, List<String> petNames) {
+  public OwnerData(Long id, String firstName, String lastName, String address, String city, String telephone) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
     this.city = city;
     this.telephone = telephone;
-    this.petNames = petNames;
   }
 
   public Long getId() {
@@ -46,20 +43,15 @@ public class OwnerInfo implements Serializable {
     return telephone;
   }
 
-  public List<String> getPetNames() {
-    return petNames;
-  }
-
   @Override
   public String toString() {
-    return "OwnerInfo{" +
+    return "OwnerData{" +
             "id=" + id +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", address='" + address + '\'' +
             ", city='" + city + '\'' +
             ", telephone='" + telephone + '\'' +
-            ", petNames=" + petNames +
             '}';
   }
 }

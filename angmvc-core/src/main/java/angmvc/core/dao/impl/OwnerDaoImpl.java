@@ -1,10 +1,10 @@
 package angmvc.core.dao.impl;
 
 import angmvc.core.dao.OwnerDao;
-import angmvc.core.model.Owner;
-import angmvc.core.model.Owner_;
-import angmvc.core.model.Pet;
-import angmvc.core.model.Pet_;
+import angmvc.core.entities.Owner;
+import angmvc.core.entities.Owner_;
+import angmvc.core.entities.Pet;
+import angmvc.core.entities.Pet_;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

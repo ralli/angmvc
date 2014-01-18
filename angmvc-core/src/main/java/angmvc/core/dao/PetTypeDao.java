@@ -2,7 +2,7 @@ package angmvc.core.dao;
 
 import java.util.List;
 
-import angmvc.core.model.PetType;
+import angmvc.core.entities.PetType;
 
 public interface PetTypeDao {
     /**

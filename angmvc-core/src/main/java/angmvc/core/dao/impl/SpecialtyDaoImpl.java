@@ -1,7 +1,7 @@
 package angmvc.core.dao.impl;
 
 import angmvc.core.dao.SpecialtyDao;
-import angmvc.core.model.Specialty;
+import angmvc.core.entities.Specialty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
