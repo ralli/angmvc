@@ -44,6 +44,22 @@
         <filter-name>httpMethodFilter</filter-name>
         <servlet-name>appServlet</servlet-name>
     </filter-mapping>
+    <filter>
+        <filter-name>ie8Filter</filter-name>
+        <filter-class>angmvc.web.filters.IE8Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ie8Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>noCacheFilter</filter-name>
+        <filter-class>angmvc.web.filters.NoCacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>noCacheFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
     <!-- Processes application requests -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
