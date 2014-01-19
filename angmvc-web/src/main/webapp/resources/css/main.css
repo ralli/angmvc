@@ -1,0 +1,27 @@
+body {
+    margin-top: 60px;
+}
+
+.ui-show {
+    color: blue;
+    transition: all 0.5s ease;
+}
+
+.ui-hide {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+ul.sortable {
+    margin: 0;
+    padding: 0;
+}
+
+ul.sortable li {
+    list-style: none;
+    padding: 5;
+    background-color: #222;
+    border-radius: 3px;
+    color: #999;
+    margin: 5;
+}

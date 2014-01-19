@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>angmvc-core</artifactId>
     <packaging>jar</packaging>
-    <name>angmvc::core</name>
+    <name>angmvc-core</name>
     <parent>
         <artifactId>angmvc</artifactId>
         <groupId>angmvc</groupId>

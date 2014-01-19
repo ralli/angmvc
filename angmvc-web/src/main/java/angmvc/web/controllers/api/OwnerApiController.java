@@ -6,7 +6,6 @@ import angmvc.core.services.OwnerService;
 import angmvc.web.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +16,6 @@ public class OwnerApiController extends ApiController {
   @Autowired
   private OwnerService ownerService;
 
-  @Transactional
   @RequestMapping(method = RequestMethod.GET)
   public
   @ResponseBody
@@ -25,7 +23,6 @@ public class OwnerApiController extends ApiController {
     return ownerService.findOwnersByName(name);
   }
 
-  @Transactional
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public
   @ResponseBody

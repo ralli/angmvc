@@ -1,6 +1,8 @@
 package angmvc.core.models;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 public class OwnerData implements Serializable {
   private Long id;
@@ -9,14 +11,16 @@ public class OwnerData implements Serializable {
   private String address;
   private String city;
   private String telephone;
+  private List<PetData> pets;
 
-  public OwnerData(Long id, String firstName, String lastName, String address, String city, String telephone) {
+  public OwnerData(Long id, String firstName, String lastName, String address, String city, String telephone, List<PetData> pets) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
     this.city = city;
     this.telephone = telephone;
+    this.pets = pets;
   }
 
   public Long getId() {
@@ -41,6 +45,10 @@ public class OwnerData implements Serializable {
 
   public String getTelephone() {
     return telephone;
+  }
+
+  public List<PetData> getPets() {
+    return Collections.unmodifiableList(pets);
   }
 
   @Override

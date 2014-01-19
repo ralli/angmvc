@@ -4,12 +4,11 @@ package angmvc.core.entities;
 import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.lang.Override;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "vets")

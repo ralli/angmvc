@@ -1,8 +1,8 @@
 package angmvc.core.dao;
 
-import java.util.List;
-
 import angmvc.core.entities.Owner;
+
+import java.util.List;
 
 public interface OwnerDao {
     /**

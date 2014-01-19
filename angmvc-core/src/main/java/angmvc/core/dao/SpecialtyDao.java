@@ -1,8 +1,8 @@
 package angmvc.core.dao;
 
-import java.util.List;
-
 import angmvc.core.entities.Specialty;
+
+import java.util.List;
 
 public interface SpecialtyDao {
     List<Specialty> findAll();    

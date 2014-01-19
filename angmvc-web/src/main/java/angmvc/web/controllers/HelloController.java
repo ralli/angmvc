@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HelloController {
   @RequestMapping(method = RequestMethod.GET)
-  public String printWelcome(ModelMap model) {
-    model.addAttribute("message", "<b>Hello world!</b>");
-    return "hello";
+  public String printWelcome() {
+    return "index";
+  }
+
+  @RequestMapping(value="/owners", method=RequestMethod.GET)
+  public String showOwners() {
+    return "crud/owners";
   }
 }
