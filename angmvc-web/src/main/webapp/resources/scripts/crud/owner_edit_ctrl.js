@@ -9,11 +9,11 @@
 
             $scope.checkError = function(field) {
                 return angular.isDefined(field) && field.$dirty && field.$invalid;
-            }
+            };
 
             $scope.errorClass = function(field) {
                 return $scope.checkError(field) ? 'has-error' : '';
-            }
+            };
 
             ownerService.get(params,
                 function (data) {

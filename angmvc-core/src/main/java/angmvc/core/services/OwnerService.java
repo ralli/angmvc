@@ -1,7 +1,6 @@
 package angmvc.core.services;
 
-import angmvc.core.models.OwnerData;
-import angmvc.core.models.OwnerInfo;
+import angmvc.core.models.*;
 
 import java.util.List;
 
@@ -21,4 +20,19 @@ public interface OwnerService {
    * @return the owner found or <code>null</code> of no owner was found
    */
   OwnerData findById(long id);
+
+  /**
+   * Creates a new owner
+   * @param ownerCommand The Data of the owner to be created
+   * @return the created owner
+   */
+  CreateOwnerResponse createOwner(OwnerCommand ownerCommand);
+
+  /**
+   * Updates an existing owner
+   * @param id the ID of the owner to be updated
+   * @param ownerCommand the owners data
+   * @return a Repsonse indicating possible errors upon updating
+   */
+  BasicResponse updateOwner(Long id, OwnerCommand ownerCommand);
 }

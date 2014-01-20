@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class IE8Filter implements Filter {
-  public static final Logger log = LoggerFactory.getLogger(IE8Filter.class);
+  private static final Logger log = LoggerFactory.getLogger(IE8Filter.class);
 
   /**
    * Empty implementation of the Filter-Interface

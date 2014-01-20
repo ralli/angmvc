@@ -14,6 +14,7 @@
         );
 
         $scope.message = "This is a test message";
+        //noinspection UnnecessaryLocalVariableJS
         var person = {
             firstName: "Horst",
             lastName: "Hrubesch",

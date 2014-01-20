@@ -91,6 +91,10 @@ public class Owner implements Serializable {
     this.telephone = telephone;
   }
 
+  public void setPets(Set<Pet> pets) {
+    this.pets = pets;
+  }
+
   public List<Pet> getPets() {
     return new ArrayList<>(pets);
   }
@@ -134,4 +138,5 @@ public class Owner implements Serializable {
             ", telephone='" + telephone + '\'' +
             '}';
   }
+
 }

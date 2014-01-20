@@ -94,6 +94,10 @@ public class Pet implements Serializable {
     this.petTypeId = petTypeId;
   }
 
+  public void setVisits(Set<Visit> visits) {
+    this.visits = visits;
+  }
+
   public List<Visit> getVisits() {
     return new ArrayList<>(visits);
   }

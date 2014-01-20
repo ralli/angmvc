@@ -35,9 +35,8 @@ public class Specialty implements Serializable {
     Specialty specialty = (Specialty) o;
 
     if (id != null ? !id.equals(specialty.id) : specialty.id != null) return false;
-    if (name != null ? !name.equals(specialty.name) : specialty.name != null) return false;
+    return !(name != null ? !name.equals(specialty.name) : specialty.name != null);
 
-    return true;
   }
 
   @Override

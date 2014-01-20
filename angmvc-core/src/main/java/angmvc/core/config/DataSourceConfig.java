@@ -1,6 +1,6 @@
 package angmvc.core.config;
 
-import org.hibernate.jpa.HibernatePersistenceProvider;
+import org.hibernate.ejb.HibernatePersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AdviceMode;
@@ -25,8 +25,7 @@ public class DataSourceConfig {
   public DataSource dataSource() throws ClassNotFoundException {
     log.info("Creating Datasource");
     EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-    EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.H2).addDefaultScripts().build();
-    return db;
+    return builder.setType(EmbeddedDatabaseType.H2).addDefaultScripts().build();
   }
 
   @Bean
@@ -43,7 +42,7 @@ public class DataSourceConfig {
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     entityManagerFactoryBean.setDataSource(dataSource);
     entityManagerFactoryBean.setPackagesToScan("angmvc.core.entities");
-    entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
+    entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
     Properties jpaProterties = new Properties();
     jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
     entityManagerFactoryBean.setJpaProperties(jpaProterties);

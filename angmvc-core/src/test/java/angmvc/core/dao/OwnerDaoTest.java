@@ -3,13 +3,14 @@ package angmvc.core.dao;
 import angmvc.TestContext;
 import angmvc.core.config.DataSourceConfig;
 import angmvc.core.entities.Owner;
+import angmvc.core.utils.TestDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -20,6 +21,8 @@ import static org.junit.Assert.*;
 public class OwnerDaoTest {
   @Autowired
   private OwnerDao ownerDao;
+  @Autowired
+  private TestDataProvider testDataProvider;
 
   @Test
   public void testFindByLastName() {
@@ -36,12 +39,7 @@ public class OwnerDaoTest {
 
   @Test
   public void testInsertUpdateDelete() {
-    Owner owner = new Owner();
-    owner.setFirstName("Horst");
-    owner.setLastName("Hrubesch");
-    owner.setAddress("Herbartstr. 10");
-    owner.setCity("Frankfurt");
-    owner.setTelephone("01223834339");
+    Owner owner = testDataProvider.createOwner(null);
     ownerDao.insert(owner);
     Long id = owner.getId();
     assertNotNull(id);

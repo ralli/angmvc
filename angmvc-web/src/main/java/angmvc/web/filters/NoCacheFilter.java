@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class NoCacheFilter implements Filter {
-  public static final Logger log = LoggerFactory.getLogger(NoCacheFilter.class);
+  private static final Logger log = LoggerFactory.getLogger(NoCacheFilter.class);
 
   /**
    * Empty implementation of the Filter-Interface

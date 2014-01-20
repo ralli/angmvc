@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 public class ApiController {
-  public static final Logger log = LoggerFactory.getLogger(ApiController.class);
+  private static final Logger log = LoggerFactory.getLogger(ApiController.class);
 
   @ExceptionHandler(NotFoundException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)

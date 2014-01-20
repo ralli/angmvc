@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-public class CreateOwnerCommand implements Serializable {
+public class OwnerCommand implements Serializable {
   @NotBlank
   @Size(max = 30)
   private String firstName;
@@ -13,10 +13,10 @@ public class CreateOwnerCommand implements Serializable {
   @Size(max = 30)
   private String lastName;
   @NotBlank
-  @Size(max = 30)
+  @Size(max = 255)
   private String address;
   @NotBlank
-  @Size(max = 30)
+  @Size(max = 80)
   private String city;
   @NotBlank
   @Size(max = 30)

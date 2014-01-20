@@ -35,9 +35,8 @@ public class PetType implements Serializable {
     PetType petType = (PetType) o;
 
     if (id != null ? !id.equals(petType.id) : petType.id != null) return false;
-    if (name != null ? !name.equals(petType.name) : petType.name != null) return false;
+    return !(name != null ? !name.equals(petType.name) : petType.name != null);
 
-    return true;
   }
 
   @Override

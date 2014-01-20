@@ -48,7 +48,7 @@
                        required="required" maxlength="80"/>
             </div>
             <button class="btn btn-primary" type="submit">Save</button>
-            <a ng-href="#" class="btn btn-default" >Cancel</a></form>
+            <a ng-href="#" class="btn btn-default" >Cancel</a>
         </form>
         <p>Person = {{person|json}}</p>
 

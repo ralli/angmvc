@@ -3,7 +3,7 @@ package angmvc.web.models;
 import java.io.Serializable;
 
 public class ErrorMessage implements Serializable {
-  private String message;
+  private final String message;
 
   public ErrorMessage(String message) {
     this.message = message;
