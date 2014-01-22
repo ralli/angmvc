@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
+@EnableTransactionManagement
 public class DataSourceConfig {
   private static final Logger log = LoggerFactory.getLogger(DataSourceConfig.class);
 
@@ -29,18 +29,18 @@ public class DataSourceConfig {
   }
 
   @Bean
-  public JpaTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean entityManagerFactoryBean) throws ClassNotFoundException {
+  public JpaTransactionManager transactionManager() throws ClassNotFoundException {
     log.info("Creating Transaction Manager");
     JpaTransactionManager transactionManager = new JpaTransactionManager();
-    transactionManager.setEntityManagerFactory(entityManagerFactoryBean.getObject());
+    transactionManager.setEntityManagerFactory(entityManagerFactoryBean().getObject());
     return transactionManager;
   }
 
   @Bean
-  public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource) throws ClassNotFoundException {
+  public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() throws ClassNotFoundException {
     log.info("Creating EntityManagerFactoryBean");
     LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-    entityManagerFactoryBean.setDataSource(dataSource);
+    entityManagerFactoryBean.setDataSource(dataSource());
     entityManagerFactoryBean.setPackagesToScan("angmvc.core.entities");
     entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
     Properties jpaProterties = new Properties();

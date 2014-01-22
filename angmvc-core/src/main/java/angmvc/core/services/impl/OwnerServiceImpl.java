@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class OwnerServiceImpl implements OwnerService {
   @Autowired
   private OwnerDao ownerDao;
@@ -75,13 +76,13 @@ public class OwnerServiceImpl implements OwnerService {
             createPetDataList(owner.getPets()));
   }
 
-  @Transactional
+  @Transactional(readOnly = true)
   public List<OwnerInfo> findOwnersByName(String lastName) {
     List<Owner> owners = ownerDao.findByLastName(lastName);
     return createOwnerInfos(owners);
   }
 
-  @Transactional
+  @Transactional(readOnly = true)
   public OwnerData findById(long id) {
     Owner owner = ownerDao.findById(id);
     return owner != null ? createOwnerData(owner) : null;

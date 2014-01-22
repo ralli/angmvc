@@ -27,7 +27,7 @@ public class OwnerDaoImpl implements OwnerDao {
     CriteriaQuery<Owner> criteriaQuery = builder.createQuery(Owner.class);
     Root<Owner> ownerRoot = criteriaQuery.from(Owner.class);
     Fetch<Owner, Pet> fetch = ownerRoot.fetch(Owner_.pets, JoinType.LEFT);
-    fetch.fetch(Pet_.petType, JoinType.INNER);
+    fetch.fetch(Pet_.petType, JoinType.LEFT);
     criteriaQuery.where(builder.like(builder.upper(ownerRoot.get(Owner_.lastName)), StringUtils.upperCase(lastName)));
     criteriaQuery.distinct(true).orderBy(builder.asc(ownerRoot.get(Owner_.lastName)));
     List<Owner> owners = em.createQuery(criteriaQuery).getResultList();
