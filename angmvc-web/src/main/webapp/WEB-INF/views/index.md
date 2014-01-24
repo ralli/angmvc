@@ -10,7 +10,7 @@ Add a new paragraph `<p>{{1+1}}</p>` and refresh the page. The paragraphs conten
 
 Change app.js to the following contents:
 
-```
+```JavaScript
 'use strict';
 
 (function() {
@@ -24,7 +24,7 @@ Change app.js to the following contents:
 
 Add the following snippet to index.jsp:
 
-```
+```HTML
 <div ng-controller="MainCtrl">
         {{message}}
 </div>
@@ -34,7 +34,7 @@ Add the following snippet to index.jsp:
 
 app.js:
 
-```
+```JavaScript
 'use strict';
 
 (function() {
@@ -55,7 +55,7 @@ app.js:
 
 index.jsp
 
-```
+```HTML
 <div ng-controller="MainCtrl">
         {{message}}
 <form role="form">
@@ -103,7 +103,7 @@ Add ng-resource to the app module. ``var app = angular.module("app", ['ui', 'ng-
 
 Add a ``$resource`` service to the module.
 
-```
+```JavaScript
 app.factory("petTypeService", ["$resource", function ($resource) {
         return $resource("/angmvc-web/api/pettypes/:id");
 }]);
@@ -111,7 +111,7 @@ app.factory("petTypeService", ["$resource", function ($resource) {
 
 Inject the service into the controller:
 
-```
+```JavaScript
 app.controller("MainCtrl", ["$scope", "petTypeService", function($scope, petTypeService) {
    petTypeService.query({},
        function(data) {
@@ -126,7 +126,7 @@ app.controller("MainCtrl", ["$scope", "petTypeService", function($scope, petType
 
 ### index.jsp
 
-```
+```HTML
 <ul>
   <li ng-repeat="petType in petTypes">{{petType.name}}</li>
 </ul>
@@ -134,7 +134,7 @@ app.controller("MainCtrl", ["$scope", "petTypeService", function($scope, petType
 
 change the ``ul`` to:
 
-```
+```HTML
 <ul class="sortable" ui-sortable="ui-sortable" ng-model="petTypes">
   <li ng-repeat="petType in petTypes">{{petType.name}}</li>
 </ul>

@@ -2,7 +2,7 @@
 
 ### owner_app.js:
 
-```
+```JavaScript
 (function () {
     var app = angular.module("ownerApp", ['ngResource', 'ngRoute', 'ui']);
 
@@ -22,7 +22,7 @@
 
 ### owner_services.js
 
-```
+```JavaScript
 'use strict';
 
 (function() {
@@ -36,7 +36,7 @@
 
 ### owner_list_ctrl.js
 
-```
+```JavaScript
 'use strict';
 
 (function () {
@@ -55,7 +55,7 @@
 
 ### list.tpl.html
 
-```
+```HTML
 <h1>Owners</h1>
 
 <p>{{owners}}</p>
@@ -63,7 +63,7 @@
 
 Add a Table:
 
-```
+```HTML
 <table class="table table-bordered table-condensed">
 <thead>
 <tr>
@@ -93,7 +93,7 @@ Add a Table:
 ## Showing owners
 
 ### owner_app.js
-```
+```JavaScript
 $routeProvider
     .when('/:id', {
         templateUrl: 'resources/scripts/crud/show.tpl.html',
@@ -102,12 +102,12 @@ $routeProvider
 ```
 
 ### list.tpl.html
-```
+```HTML
 <td><a href="#!/{{owner.id}}"></a></td>
 ```
 
 ### owner_show_ctrl.js
-```
+```JavaScript
 'use strict';
 
 (function () {
@@ -126,7 +126,7 @@ $routeProvider
 
 ### show.tpl.html
 
-```
+```HTML
 <div class="form-horizontal">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -178,7 +178,7 @@ $routeProvider
 
 ### owner_services.js
 
-```
+```JavaScript
 app.factory("messageService", function () {
     var result = {};
     result.showError = function (message) {
@@ -210,7 +210,7 @@ app.factory("messageService", function () {
 
 and in ownerService.get():
 
-```
+```HTML
 function (error) {
     $location.path("/");
     messageService.showError(error.data.message);
