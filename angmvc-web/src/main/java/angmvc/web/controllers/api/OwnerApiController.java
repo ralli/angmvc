@@ -3,6 +3,8 @@ package angmvc.web.controllers.api;
 import angmvc.core.models.*;
 import angmvc.core.services.OwnerService;
 import angmvc.web.exceptions.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import java.util.List;
 public class OwnerApiController extends ApiController {
   @Autowired
   private OwnerService ownerService;
+  private static final Logger log = LoggerFactory.getLogger(OwnerApiController.class);
 
   @RequestMapping(method = RequestMethod.GET)
   public
@@ -53,10 +56,11 @@ public class OwnerApiController extends ApiController {
     return response;
   }
 
-  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
   public
   @ResponseBody
   BasicResponse deleteOwner(@PathVariable long id) {
+    log.info("deleteOwner({})", id);
     BasicResponse response = ownerService.deleteOwner(id);
     if (response.containsErrorCode("notfound")) {
       throw new NotFoundException("Owner not found");
