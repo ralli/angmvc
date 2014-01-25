@@ -47,7 +47,18 @@ public class OwnerApiController extends ApiController {
   BasicResponse
   updateOwner(@PathVariable long id, @RequestBody @Valid OwnerCommand ownerCommand) {
     BasicResponse response = ownerService.updateOwner(id, ownerCommand);
-    if(response.containsErrorCode("notfound")) {
+    if (response.containsErrorCode("notfound")) {
+      throw new NotFoundException("Owner not found");
+    }
+    return response;
+  }
+
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  public
+  @ResponseBody
+  BasicResponse deleteOwner(@PathVariable long id) {
+    BasicResponse response = ownerService.deleteOwner(id);
+    if (response.containsErrorCode("notfound")) {
       throw new NotFoundException("Owner not found");
     }
     return response;

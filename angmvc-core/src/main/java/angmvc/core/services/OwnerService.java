@@ -35,4 +35,11 @@ public interface OwnerService {
    * @return a Repsonse indicating possible errors upon updating
    */
   BasicResponse updateOwner(Long id, OwnerCommand ownerCommand);
+
+    /**
+     * Deletes an existing owner
+     * @param id the id of the owner to be deleted
+     * @return a Repsonse indicating possible errors upon updating
+     */
+  BasicResponse deleteOwner(Long id);
 }

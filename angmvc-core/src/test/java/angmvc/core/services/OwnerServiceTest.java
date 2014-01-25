@@ -116,4 +116,23 @@ public class OwnerServiceTest {
     assertTrue(response.containsErrorCode("notfound"));
   }
 
+  @Test
+  public void updateOwnerShouldSucceed() {
+    final long ownerId = 10L;
+    final Owner owner = testDataProvider.createOwner(ownerId);
+    Mockito.when(ownerDao.findById(ownerId)).thenReturn(owner);
+    OwnerCommand ownerCommand = createOwnerCommand(owner);
+    BasicResponse response = ownerService.updateOwner(ownerId, ownerCommand);
+    assertTrue(response.isValid());
+  }
+
+  @Test
+  public void updateOwnerFailsIfOwnerNotFound() {
+    final long ownerId = 10L;
+    final Owner owner = testDataProvider.createOwner(ownerId);
+    Mockito.when(ownerDao.findById(ownerId)).thenReturn(null);
+    OwnerCommand ownerCommand = createOwnerCommand(owner);
+    BasicResponse response = ownerService.updateOwner(ownerId, ownerCommand);
+    assertTrue(response.containsErrorCode("notfound"));
+  }
 }
