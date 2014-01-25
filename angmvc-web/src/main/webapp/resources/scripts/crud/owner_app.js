@@ -13,6 +13,11 @@
                     controller: 'OwnerListCtrl'
                 });
             $routeProvider
+                .when('/new', {
+                    templateUrl: 'resources/scripts/crud/create.tpl.html',
+                    controller: 'OwnerCreateCtrl'
+                });
+            $routeProvider
                 .when('/:id', {
                     templateUrl: 'resources/scripts/crud/show.tpl.html',
                     controller: 'OwnerShowCtrl'

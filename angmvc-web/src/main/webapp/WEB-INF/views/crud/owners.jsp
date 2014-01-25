@@ -32,6 +32,7 @@
 <script src="<c:url value="/resources/scripts/crud/owner_list_ctrl.js"/>"></script>
 <script src="<c:url value="/resources/scripts/crud/owner_show_ctrl.js"/>"></script>
 <script src="<c:url value="/resources/scripts/crud/owner_edit_ctrl.js"/>"></script>
+<script src="<c:url value="/resources/scripts/crud/owner_create_ctrl.js"/>"></script>
 <script src="<c:url value="/resources/scripts/crud/owner_services.js"/>"></script>
 
 </body>
