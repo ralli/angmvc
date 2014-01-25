@@ -2,9 +2,11 @@ package angmvc.web.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
@@ -35,9 +37,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean
+  public MessageSource messageSource() {
+    log.info("creating message source");
+    ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+    messageSource.setBasename("WEB-INF/messages/validation");
+    messageSource.setCacheSeconds(0);
+    log.info("message source = {}", messageSource);
+    return messageSource;
+  }
+  @Bean
   public Validator validator() {
     log.info("Registering validator...");
-    return new LocalValidatorFactoryBean();
+    LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
+    validatorFactoryBean.setValidationMessageSource(messageSource());
+    return validatorFactoryBean;
   }
 
   @Override
