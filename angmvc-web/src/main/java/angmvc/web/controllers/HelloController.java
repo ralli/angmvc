@@ -16,4 +16,9 @@ public class HelloController {
   public String showOwners() {
     return "crud/owners";
   }
+
+  @RequestMapping(value="/components", method=RequestMethod.GET)
+  public String showComponentsDemo() {
+    return "components/components";
+  }
 }
