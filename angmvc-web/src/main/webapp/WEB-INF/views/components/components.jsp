@@ -12,14 +12,36 @@
 <body>
 <%@include file="../_menu.jsp" %>
 <div class="container" ng-app="componentApp">
-  <div class="container" ng-controller="MainCtrl">
+  <div class="container" ng-controller="MainCtrl" style="margin-bottom: 1em;">
     <label>
       <input type="checkbox" ng-model="visible"/> Visible: {{visible}}
     </label>
     <show-hide visible="{{visible}}">
-      This is a test. Visible: {{visible}}. Date: {{date}}.
+      This is a test. Visible: {{visible}}. Date: {{date|date}}.
     </show-hide>
   </div>
+
+  <div ng-controller="BoldTextCtrl">
+    <panel title="Test">
+      <div class="form">
+        <div class="form-group">
+          <label for="my-bold-text">Text</label>
+          <input class="form-control" type="text" id="my-bold-text" ng-model="myBoldText"/>
+        </div>
+        <bold-text text="{{myBoldText}}"></bold-text>
+      </div>
+    </panel>
+  </div>
+
+  <div ng-controller="InputCtrl">
+    <panel title="Text Input">
+      <p>
+        <input-text text="myInputText"/>
+      </p>
+      <p>{{myInputText}}</p>
+    </panel>
+  </div>
+</div>
 </div>
 <script src="<c:url value="/webjars/jquery/1.10.2/jquery.min.js"/>"></script>
 <script src="<c:url value="/webjars/jquery-ui/1.10.2/ui/minified/jquery-ui.min.js"/>"></script>
