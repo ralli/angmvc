@@ -24,7 +24,7 @@
     <td>{{owner.petNames.join(", ")}}</td>
     <td>
       <a href="#!/{{owner.id}}">Show</a>
-      <delete-link delete-href="/angular-web/api/owners/{{owner.id}}/delete">Delete {{owner.id}}</delete-link>
+      <delete-link delete-href="/angmvc-web/api/owners/{{owner.id}}/delete" success="deleteSuccess" error="deleteError">Delete {{owner.id}}</delete-link>
     </td>
   </tr>
   </tbody>
